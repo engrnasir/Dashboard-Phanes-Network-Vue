@@ -1,5 +1,5 @@
 <template>
-  <footer class="footer" :class="nightMode? 'footer-night':''">
+  <footer class="footer" :class="nightMode?'footer-night':''">
     <div class="row">
         <div class="columns">
             <div class="col1">
@@ -7,31 +7,22 @@
                 <div class="social-icons">
                     <a href=""><img src="@/assets/Facebook.png" alt="" class="icon"></a>
                     <a href=""><img src="@/assets/twitter.png" alt="" class="icon"></a>
-                    <a href=""><img src="@/assets/Instagram.png" alt="" class="icon"></a>
-                    <a href=""><img src="@/assets/LinkedIn.png" alt="" class="icon"></a>
-                    <a href=""><img src="@/assets/YouTube.png" alt="" class="icon"></a>
+                    <a href=""><img src="@/assets/discord.png" alt="" class="icon"></a> 
+                    <a href=""><img src="@/assets/telegram.png" alt="" class="icon"></a>
+                    <a href=""><img src="@/assets/announcement.png" alt="" class="icon"></a> 
                 </div>
             </div>
-            <div class="col" :class="nightMode?'col-night':''">
-                <h3 class="title">Company</h3>
+            <div class="col">
+                <h3 class="title">Important Links</h3>
                 <ul class="items">
-                    <li class="item"><a href="#">Phanes Protocol</a></li>
+                    <li class="item"><a href="#">Phanes Token</a></li>
                     <li class="item"><a href="#">Governance</a></li>
+                    <li class="item"><a href="#">Indices</a></li>
                     <li class="item"><a href="#">Docs</a></li>
                     <li class="item"><a href="#">FAQ</a></li>
                 </ul>
             </div>
-            <div class="col" :class="nightMode?'col-night':''">
-                <h3 class="title">Important Links</h3>
-                <ul class="items">
-                    <li class="item"><a href="#">Phanes Tokens</a></li>
-                    <li class="item"><a href="#">Bug Bounty</a></li>
-                    <li class="item"><a href="#">Flash Loans</a></li>
-                    <li class="item"><a href="#">Genral Terms & Condition</a></li>
-                    <li class="item"><a href="#">Rate Switching</a></li>
-                </ul>
-            </div>
-            <div class="col" :class="nightMode?'col-night':''">
+            <div class="col">
                 <h3 class="title">Support</h3>
                 <ul class="items">
                     <li class="item"><a href="#">Contact</a></li>
@@ -42,7 +33,7 @@
             </div>
         </div>
         <div class="h-line"></div>
-        <div class="copyright-text" :class="nightMode?'copyright-text-night':''">
+        <div class="copyright-text">
             <p class="text">Copyright © 2022 Phanes Network</p>
             <div class="right-links">
                 <span>All Rights Reserved </span>|
@@ -55,10 +46,12 @@
 </template>
 
 <script>
-import { mapState } from 'vuex'
+    import { mapState } from 'vuex';
 export default {
     computed:{
-        ...mapState(['nightMode'])
+        ...mapState([
+            'nightMode'
+        ])
     }
 
 }
@@ -66,11 +59,8 @@ export default {
 
 <style lang="scss" scoped>
     .footer{
-        width: 100%;
+        background: linear-gradient(rgba(10, 134, 156, 0.05), rgba(10, 134, 156, 0.034));
         padding-bottom: 50px;
-        // rgba(74, 10, 156, 0.15
-        background: linear-gradient(180deg, rgba(74, 10, 156, 0.08), rgba(252, 252, 252, 0) 100%);
-
         .columns{
             padding: 109px 24px;
             display: flex;
@@ -84,8 +74,12 @@ export default {
             }
             .col1{
                 .logo{
-                    height: 59px;
-                    margin-bottom: 33px;
+                    height: 60px;
+                    margin-bottom: 38px;
+                    @media only screen and (max-width: 580px){
+                        height: 40px;
+                        margin-bottom: 20px;
+                    }
                 }
                 .social-icons{
                     display: flex;
@@ -105,7 +99,7 @@ export default {
                     font-weight: 700;
                     font-size: 20px;
                     line-height: 22px;
-                    color: #383838;
+                    color: #141414;
                     margin-bottom: 40px;
                     @media only screen and (max-width:720px){
                         margin-bottom: 20px;
@@ -122,19 +116,14 @@ export default {
                         font-weight: 400;
                         font-size: 18px;
                         line-height: 20px;
-                        color: #676D7A;
+                        color: #141414;
                         transition: all .2s;
-                        display: flex;
-                        align-items: center;
-                        img{
-                            width: 24px;
-                            margin-right: 6px;
-                        }
                         @media only screen and (max-width: 580px){
                             font-size: 15px;
                             line-height: 15px;
                         }
-                        &:hover{                            
+                        &:hover{
+                            color:#141414;
                             font-size: 20px;
                         }
                     }
@@ -146,19 +135,11 @@ export default {
                     }
                 }
             }
-            .col-night{
-                .title{
-                    color: #fff;
-                }
-                .items .item a{
-                    color: #ADADAD;
-                }
-            }
         }
         .h-line{
             width: 100%;
             height: 0px;
-            border: 1px solid #4F5580;
+            border: 1px solid #4f558086;
             margin-bottom: 25px;
         }
         .copyright-text{
@@ -168,14 +149,14 @@ export default {
             font-weight: 400;
             font-size: 18px;
             line-height: 30px;
-            color: #383838;
+            color: #070E0C;
+            @media only screen and (max-width:580px){
+                font-size: 14px;
+                line-height: 18px;
+            }
             @media only screen and (max-width:920px){
                 flex-direction: column;
                 justify-content: center;
-            }
-            @media only screen and (max-width:580px){
-                font-size: 10px;
-                line-height: 18px;
             }
 
             .right-links{
@@ -188,16 +169,37 @@ export default {
                 }
                 a{
                     text-decoration: underline;
-                    color: #09976E;
+                    color: #1BD19C;
                 }
             }
         }
-        .copyright-text-night{
-            color: #ffffff;
+    }
+    .footer-night{
+        background: #070E0C;
+        backdrop-filter: blur(20px);
+        .columns{
+            padding: 109px 24px;
+            .col{
+                .title{
+                    color: #fff;
+                }
+                .items{
+                    list-style: none;
+                    .item a{
+                        color: #EDEDED;
+                        &:hover{
+                            color:#fff;
+                        }
+                    }
+                }
+            }
+        }
+        .h-line{
+            border: 1px solid #4F5580;
+        }
+        .copyright-text{
+            color: #EDEDED;
         }
     }
-    .footer-night{        
-        background: rgba(10, 14, 11, 0.999);
-        backdrop-filter: blur(20px);
-    }
+
 </style>

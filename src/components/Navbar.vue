@@ -39,6 +39,7 @@
                 else if(btn.classList.contains('btn3')){this.$router.push('/tokenLocker')}
                 else if(btn.classList.contains('btn4')){this.$router.push('/tokenMinter')}
                 else if(btn.classList.contains('btn5')){this.$router.push('/staking')}
+                else if(btn.classList.contains('btn6')){this.$router.push('/')}
             }
     
         },
@@ -58,6 +59,7 @@
         <li><router-link to="" @click="setActive" class="btn btn3">Token Locker</router-link></li>
         <li><router-link to="" @click="setActive" class="btn btn4">Token Minter</router-link></li>
         <li><router-link to="" @click="setActive" class="btn btn5">Staking</router-link></li>
+        <li><router-link to="" @click="setActive" class="btn btn6">Multisender</router-link></li>
     </ul>
     <div class="right">
         <img src="@/assets/dayIcon.png" alt="" class="toggleBtn" v-if="nightMode" @click="changeMode(!nightMode)">
