@@ -3,18 +3,26 @@ import { createStore } from 'vuex'
 export default createStore({
   state: {
     nightMode:false,
-      showPopup: false,
+    showPopup: false,
 
-      // Used in ConnectWallet 
-      currencyFrom: { icon: "eth-icon.png", title: "ETH" },
-      currencyTo: { icon: "dpi.png", title: "DPI" },
-      currencies: [
-          { icon: "eth-icon.png", title: "ETH" },
-          { icon: "dpi.png", title: "DPI" },
-      ],
-      sllipageVal: 1,
-      balance: 0,
-      popupType: ''
+    // Used in ConnectWallet 
+    currencyFrom: { icon: "eth-icon.png", title: "ETH" },
+    currencyTo: { icon: "dpi.png", title: "DPI" },
+    currencies: [
+        { icon: "eth-icon.png", title: "ETH" },
+        { icon: "dpi.png", title: "DPI" },
+    ],
+    sllipageVal: 1,
+    balance: 0,
+    popupType: '',
+
+    // Staking
+    showStakingPopup:false,
+    selectedStakingCurrency: { icon: "eth-icon.png", title: "ETHEREUM" },
+    stakingCurrencies: [
+      { icon: "eth-icon.png", title: "ETHEREUM" },
+      { icon: "dpi.png", title: "DPI" },
+    ],
 
   },
   getters: {
@@ -26,6 +34,9 @@ export default createStore({
     },
     togglePopup(state, val){
       state.showPopup = val
+    },
+    toggleStakingPopup(state, val){
+      state.showStakingPopup = val
     },
 
     // Used in ConnectWallet
@@ -41,7 +52,12 @@ export default createStore({
     },
     setPopupType(state, val){
       state.popupType = val
-    }
+    },
+
+    // Staking
+    setStakingCurrency(state, info){
+        state.selectedStakingCurrency = info.currency
+    },
   },
   actions: {
   },

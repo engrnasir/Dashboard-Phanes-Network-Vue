@@ -36,9 +36,9 @@
                 btn.classList.add('active')
                 if(btn.classList.contains('btn1')){ this.$router.push('/')}
                 else if(btn.classList.contains('btn2')){this.$router.push('/liquidityLocker')}
-                else if(btn.classList.contains('btn3')){this.$router.push('/')}
-                else if(btn.classList.contains('btn4')){this.$router.push('/')}
-                else if(btn.classList.contains('btn5')){this.$router.push('/')}
+                else if(btn.classList.contains('btn3')){this.$router.push('/tokenLocker')}
+                else if(btn.classList.contains('btn4')){this.$router.push('/tokenMinter')}
+                else if(btn.classList.contains('btn5')){this.$router.push('/staking')}
             }
     
         },
@@ -53,7 +53,7 @@
     <img src="@/assets/Logo-night.png" alt="" class="logo" v-if="nightMode">
     <img src="@/assets/logo.png" alt="" class="logo" v-else>
     <ul class="buttons" :class="nightMode?'buttons-night':''">
-        <li><router-link to="" @click="setActive" class="btn btn1 active">Index</router-link></li>
+        <li><router-link to="" @click="setActive" class="btn btn1">Index</router-link></li>
         <li><router-link to="" @click="setActive" class="btn btn2">Liquidity Locker</router-link></li>
         <li><router-link to="" @click="setActive" class="btn btn3">Token Locker</router-link></li>
         <li><router-link to="" @click="setActive" class="btn btn4">Token Minter</router-link></li>
@@ -196,16 +196,14 @@
                     font-size: 12px;
                 }
                 &:active,&:hover{
-                    color: #084F65;
-                    background:  #fff;
-                    border: 2px solid #084F65;
+                    background:  #09976E;
                 }
             }
 
         }
     }
     .nav-night{
-        background: rgba(7, 14, 12, 0.85);
+        background: rgba(10, 14, 11, 0.999);
         backdrop-filter: blur(20px);
     }
 

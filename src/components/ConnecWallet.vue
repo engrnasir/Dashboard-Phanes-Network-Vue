@@ -359,7 +359,7 @@ import { mapMutations } from 'vuex';
                 }
             }
         .connectWallet-night{
-            background: #070E0C;
+            background: #071310;
             .navigation{
                 .buttons{
                     .btn{

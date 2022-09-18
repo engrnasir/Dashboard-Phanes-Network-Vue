@@ -139,7 +139,7 @@ export default {
          
         </div>
         <div class="stats" :class="nightMode? 'stats-night':''">
-            <img class="bg" src="@/assets/stats-bg.png" alt="">
+            <!-- <img class="bg" src="@/assets/stats-bg.png" alt=""> -->
             <div class="row">
                 <h2>stats</h2>
                 <ul class="items">
@@ -183,6 +183,12 @@ export default {
         position: relative;
         padding-bottom: 48px;
         .stats{
+            background-image: linear-gradient(rgba(27, 209, 156, 0.6), rgba(27, 209, 156, 0.6)), url('@/assets/stats-bg.png');
+            background-repeat: no-repeat;
+            background-size: cover;
+            background-position: center;
+  
+
                 width: 100%;
                 margin-bottom: 30px;
                 @media only screen and (min-width:1560px) {
@@ -255,59 +261,10 @@ export default {
                     }
                 }
 
-
-position: relative;
-width: 100%;
-background-color: rgba(27, 209, 156, 0.6);
-backdrop-filter: blur(20px);
-overflow: hidden;
--webkit-perspective: 240px;
-perspective: 240px;
-.bg{
-    position: absolute;
-    top: -70px;
-    left: -100px;
-    width: 140%;
-    min-height: 160%;
-    @media only screen and (max-width:1080px) {
-        min-height: 190%;
-    }
-    @media only screen and (max-width:780px) {
-        min-height: 300%;
-    }
-    @media only screen and (max-width:580px) {
-        width: 220%;
-    }
-
-    -webkit-transform: rotateX(20deg);
-    -webkit-perspective-origin: center;
-    -webkit-animation: moveSquare 15s infinite ease-in-out alternate;
-    animation: moveSquare 15s infinite ease-in-out alternate;
-}
-
-@keyframes moveSquare {
-  0% {
-    -webkit-transform:translateX(0px) translateY(-70px) rotateX(0deg);
-    transform:translateX(0px) translateY(-70px) rotateX(0deg);
-    opacity: .8;
-  }
-  50% {
-    -webkit-transform: translateX(-50px) translateY(-30px) rotateX(10deg);
-    transform: translateX(-50px) translateY(-30px) rotateX(10deg);
-    opacity: .2;
-  }
-  100% {
-    -webkit-transform:translateX(0px) translateY(-70px) rotateX(0deg);
-    transform:translateX(0px) translateY(-70px) rotateX(0deg);
-    opacity: .8;
-    
-  }
-}
-
             }
         .stats-night{
-            
-            background:rgba(2, 10, 8, 0.75);
+            background-image: linear-gradient(rgba(2, 10, 8, 0.75), rgba(2, 10, 8, 0.75)), url('@/assets/stats-bg.png');
+        
             h2{
                 color: #E0E0E0;
             }

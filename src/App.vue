@@ -1,15 +1,41 @@
-<template>
-  <Navbar/>
+<template class="container">
+  <!-- ConnectWallet Popup -->
+    <div class="overlay" @click="togglePopup(false)" v-show="showPopup"></div>
+    <PopupTokens1 v-show="showPopup"/>
+
+    <!-- Staking Popup -->
+    <div class="overlay" @click="toggleStakingPopup(false)" v-show="showStakingPopup"></div>
+    <StakingPopup v-show="showStakingPopup"/>
+
+    <Navbar/>
     <router-view/>
-  <FooterComp/>
+    <FooterComp/>
+    
 </template>
 <script>
-  import Navbar from "@/components/Navbar.vue";
+import { mapMutations, mapState } from "vuex";
+import Navbar from "@/components/Navbar.vue";
 import FooterComp from "./components/FooterComp.vue";
+import PopupTokens1 from './components/popupTokens.vue';
+import StakingPopup from "./components/StakingPopup.vue";
   export default {
+    computed: {
+      ...mapState([
+        'showPopup',
+        'showStakingPopup'
+      ]),
+    },
+    methods:{
+      ...mapMutations([
+          'togglePopup',
+          'toggleStakingPopup'
+      ]),
+    },
     components:{
     Navbar,
-    FooterComp
+    FooterComp,
+    PopupTokens1,
+    StakingPopup
 }
   }
 </script>
@@ -37,4 +63,17 @@ a{
     padding: 0 10px;
   }
 }
+.container{
+  position: relative;
+}
+.overlay{
+    background-color: rgba(0, 0, 0, 0.7);
+    backdrop-filter: blur(20px);
+    width: 100%;
+    min-height: 120vh;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 999;
+  }
 </style>

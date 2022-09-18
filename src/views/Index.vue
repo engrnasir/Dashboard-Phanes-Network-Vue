@@ -1,8 +1,5 @@
 <template>
   <div class="dashboard" :class="nightMode? 'dashboard-night':''">
-    <div class="overlay" @click="togglePopup(false)" v-show="showPopup"></div>
-    <PopupTokens1 v-show="showPopup"/>
-
     <!-- Header -->
     <HeaderComp/>
     <!-- Main -->
@@ -34,12 +31,8 @@ export default {
 </script>
 <style lang="scss">
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap');
-.dashboard{
-  position: relative;
-  z-index: 999;
-}
 .dashboard-night{
-  background: rgb(7, 14, 12);
+  background: #070E0C;
   backdrop-filter: blur(20px);
 }
 *,*::after,*::before{
@@ -55,23 +48,14 @@ a{
 text-decoration: none;
 }
 .row{
-width: 100%;
-max-width: 1600px;
-margin-left: 50%;
-transform: translateX(-50%);
-padding: 0 24px;
-@media only screen and (max-width:580px){
-  padding: 0 10px;
+  width: 100%;
+  max-width: 1600px;
+  margin-left: 50%;
+  transform: translateX(-50%);
+  padding: 0 24px;
+  @media only screen and (max-width:580px){
+    padding: 0 10px;
+  }
 }
-}
-.overlay{
-background-color: rgba(0, 0, 0, 0.7);
-backdrop-filter: blur(20px);
-width: 100%;
-min-height: 120vh;
-position: fixed;
-top: 0;
-left: 0;
-z-index: 1;
-}
+
 </style>

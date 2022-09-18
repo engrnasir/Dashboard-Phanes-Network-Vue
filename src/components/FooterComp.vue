@@ -43,7 +43,7 @@
         </div>
         <div class="h-line"></div>
         <div class="copyright-text" :class="nightMode?'copyright-text-night':''">
-            <p class="text">Copyright © 2022 Sapa Vault Index</p>
+            <p class="text">Copyright © 2022 Phanes Network</p>
             <div class="right-links">
                 <span>All Rights Reserved </span>|
                 <a href=""> Terms and Conditions </a>|
@@ -196,8 +196,8 @@ export default {
             color: #ffffff;
         }
     }
-    .footer-night{
-        background: rgb(7, 14, 12);
+    .footer-night{        
+        background: rgba(10, 14, 11, 0.999);
         backdrop-filter: blur(20px);
     }
 </style>
