@@ -129,6 +129,7 @@ export default {
     align-items: center;
     justify-content: space-between;
     padding: 40px 0;
+
     .leftFilter{
         width: 200px;
         height: 53px;
@@ -137,10 +138,19 @@ export default {
         display: flex;
         align-items: center;
         justify-content: center;
+        @media only screen and (max-width:980px){
+            height: min-content;
+            padding: 5px 15px;            
+            width: 150px;
+        }
         cursor: pointer;
         .icon{
             height: 25px;
             margin-right: 15px;
+            @media only screen and (max-width:980px){
+                height: 20px;
+                margin-right: 10px;
+            }
         }
         .title{
             font-weight: 600;
@@ -149,6 +159,10 @@ export default {
             color:#070E0C;
             margin-right: 5px;
             text-transform: uppercase;
+            @media only screen and (max-width:980px){
+                font-weight: 500;
+                font-size: 14px;
+            }
         }
         .dropdownIcon{
             width: 7px;
@@ -156,8 +170,6 @@ export default {
     }
     .sortWrapper{
             position: relative;
-            width: 166px;
-            height: 42px;
             .sortPopup{
                 opacity: 1;
                 width: 100%;
@@ -207,9 +219,18 @@ export default {
             font-size: 18px;
             color: #070E0C;
             cursor: pointer;
+            @media only screen and (max-width:980px){
+                width: 120px;
+                height: 30px;
+                font-size: 14px;
+            }
             img{
                 width: 26px;
                 margin-left: 17px;
+                @media only screen and (max-width:980px){
+                    width: 16px;
+                    margin-left: 10px;
+                }
             }
         }
 
@@ -240,12 +261,18 @@ export default {
         background: linear-gradient(95.34deg, rgba(9, 151, 110, 0.1) -21.44%, rgba(8, 79, 101, 0.1) 108.23%);
         border-radius: 8px;
         margin-bottom: 40px;
+        @media only screen and (max-width:420px){
+            padding: 20px;
+        }
 
         .card-header{
             display: flex;
             align-items: center;
             justify-content: space-between;
             .title-wrapper{
+                @media only screen and (max-width:420px){
+                    width: 60%;
+                }
                 .title{
                     font-weight: 700;
                     font-size: 20px;
@@ -270,12 +297,26 @@ export default {
             display: flex;
             align-items: center;
             justify-content: space-between;
+            @media only screen and (max-width:980px){
+                flex-direction: column;
+            }
             .col{
+                @media only screen and (max-width:980px){
+                    width: 100%;
+                    display: flex;
+                    align-items: center;
+                    justify-content: space-between;
+                    margin-bottom: 10px;
+                }
                 .title{
                     font-weight: 500;
                     font-size: 20px;
                     color: #505050;
                     margin-bottom: 10px;
+                    @media only screen and (max-width:980px){
+                        flex-direction: column;
+                        margin-bottom: 0px;
+                    }
                 }
                 .value{
                     font-weight: 500;
@@ -296,6 +337,10 @@ export default {
                 font-size: 18px;
                 color: #FFFFFF;
                 cursor: pointer;
+                text-transform: capitalize;
+                @media only screen and (max-width:980px){
+                    margin-top: 20px;
+                }
                 &:hover{
                     background: #09976E;
                 }

@@ -3,7 +3,7 @@
     <!-- Header -->
     <HeaderComp/>
     <!-- Main -->
-    <MainComp/>
+    <MainComp/>    
 
   </div>
 </template>

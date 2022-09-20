@@ -4,12 +4,13 @@
         data(){
             return{
                 darkMode:false,
+                hideMenu: true,
             }
         },
         computed:{
             ...mapState([
                 'nightMode'
-            ])
+            ]),
         },
         methods:{
             ...mapMutations([
@@ -34,12 +35,16 @@
                 }
                 const btn = event.target
                 btn.classList.add('active')
-                if(btn.classList.contains('btn1')){ this.$router.push('/')}
+                
+                if(btn.classList.contains('btn1')){                     
+                    this.$router.push('/dashboard')
+                }
                 else if(btn.classList.contains('btn2')){this.$router.push('/liquidityLocker')}
                 else if(btn.classList.contains('btn3')){this.$router.push('/tokenLocker')}
                 else if(btn.classList.contains('btn4')){this.$router.push('/tokenMinter')}
                 else if(btn.classList.contains('btn5')){this.$router.push('/staking')}
-                else if(btn.classList.contains('btn6')){this.$router.push('/')}
+                else if(btn.classList.contains('btn6')){this.$router.push('/multisender')}
+                this.hideMenu = !this.hideMenu
             }
     
         },
@@ -51,17 +56,20 @@
 
 <template>
   <nav class="nav" :class="nightMode?'nav-night':''">
-    <img src="@/assets/Logo-night.png" alt="" class="logo" v-if="nightMode">
-    <img src="@/assets/logo.png" alt="" class="logo" v-else>
-    <ul class="buttons" :class="nightMode?'buttons-night':''">
-        <li><router-link to="" @click="setActive" class="btn btn1">Index</router-link></li>
-        <li><router-link to="" @click="setActive" class="btn btn2">Liquidity Locker</router-link></li>
-        <li><router-link to="" @click="setActive" class="btn btn3">Token Locker</router-link></li>
-        <li><router-link to="" @click="setActive" class="btn btn4">Token Minter</router-link></li>
-        <li><router-link to="" @click="setActive" class="btn btn5">Staking</router-link></li>
-        <li><router-link to="" @click="setActive" class="btn btn6">Multisender</router-link></li>
-    </ul>
+    <img src="@/assets/Logo-night.png" alt="" class="logo" v-if="nightMode" @click="$router.push('/')">  
+    <img src="@/assets/logo.png" alt="" class="logo" v-else @click="$router.push('/')">
+    <div :class="hideMenu? 'hideButtons':''">
+        <ul class="buttons" :class="nightMode?'buttons-night':''">
+            <li><router-link to="" @click="setActive" class="btn btn1">Index</router-link></li>
+            <li><router-link to="" @click="setActive" class="btn btn2">Liquidity Locker</router-link></li>
+            <li><router-link to="" @click="setActive" class="btn btn3">Token Locker</router-link></li>
+            <li><router-link to="" @click="setActive" class="btn btn4">Token Minter</router-link></li>
+            <li><router-link to="" @click="setActive" class="btn btn5">Staking</router-link></li>
+            <li><router-link to="" @click="setActive" class="btn btn6">Multisender</router-link></li>
+        </ul>
+    </div>
     <div class="right">
+        <img src="@/assets/menu.png" alt="" class="menuIcon" @click="hideMenu = !hideMenu">
         <img src="@/assets/dayIcon.png" alt="" class="toggleBtn" v-if="nightMode" @click="changeMode(!nightMode)">
         <img src="@/assets/nightIcon.png" alt="" class="toggleBtn" v-else @click="changeMode(!nightMode)">
         
@@ -72,6 +80,8 @@
 </template>
 <style lang="scss" scoped>
     .nav{
+        position: relative;
+        z-index: 1;
         width: 100%;
         background: linear-gradient(180deg, rgba(243, 243, 243, 0.132) 0%, rgba(243, 243, 243, 0.044) 100%);
         backdrop-filter: blur(20px);
@@ -87,30 +97,41 @@
             padding: 15px 10px;
         }
         .logo{
+            cursor: pointer;
             width: 130px;       
-            @media only screen and (max-width:780px) {
-                width: 70px;
+            @media only screen and (max-width:1080px) {
+                width: 100px;
             }     
-            @media only screen and (max-width:580px) {
-                width: 45px;
-            } 
+               
         }
         .buttons{
             display: flex;
             align-items: center;
             justify-content: center;
             list-style: none;
+            li{
+                @media only screen and (max-width:980px) {
+                    width: 100%;
+                }
+            }
+
+            @media only screen and (max-width:980px) {
+                position: absolute;
+                top: 70px;
+                left: 0;
+                flex-direction: column;
+                width: 100%;
+                align-items: flex-start;
+                background: #f3f3f3;
+                z-index: 999;
+                box-shadow: 0 10px 10px 10px rgba(0, 0, 0, 0.1);
+                padding: 15px;
+            }   
             &>*:not(:last-child){
                 margin-right: 40px;
                 @media only screen and (max-width:1480px) {
-                   margin-right: 15px;
+                   margin-right: 2px;
                 }
-                @media only screen and (max-width:780px) {
-                   margin-right: 10px;
-                }
-                @media only screen and (max-width:580px) {
-                    margin-right: 0px;
-                } 
             }
             .btn{
                 font-weight: 500;
@@ -119,16 +140,18 @@
                 border-radius: 7px;
                 color: #070E0C;
                 transition: all .25s;
-                @media only screen and (max-width:780px) {
-                    padding: 6px 14px;
-                } 
-                @media only screen and (max-width:580px) {
-                    font-size: 16px;
-                    padding: 6px 10px;
+
+                @media only screen and (max-width:1340px) {
+                    padding: 10px;
                 }
-                @media only screen and (max-width:400px) {
-                    font-size: 14px;
-                    padding: 6px;
+                @media only screen and (max-width:1130px) {
+                    font-size: 16px;
+                }
+                @media only screen and (max-width:980px) {
+                    display: inline-block;
+                    min-width: 100%;
+                    border-radius: 0px;
+                    margin-right: 0px;
                 }
                 &:active,&:hover{
                     background: rgba(9, 151, 110, 0.15);
@@ -141,6 +164,9 @@
             }           
         }
         .buttons-night{
+            @media only screen and (max-width:980px) {
+                background: rgba(10, 14, 11, 0.999);
+            }
             .btn{
                 color: #ADADAD;
                 &:active,&:hover{
@@ -153,10 +179,28 @@
                 color: #ADADAD;
             }
         }
+        .hideButtons{
+            display: block;
+            @media only screen and (max-width:980px){
+                display: none;
+            }
+        }
         .right{
             display: flex;
             align-items: center;
             justify-content: center;
+            .menuIcon{
+                width: 30px;
+                margin-right: 15px;
+                cursor: pointer;
+                display: none;
+                @media only screen and (max-width:980px) {
+                    display: block;
+                }
+                @media only screen and (max-width:580px) {
+                    width: 20px;
+                }
+            }
             .toggleBtn{
                 width: 45px;
                 height: 45px;
@@ -166,6 +210,12 @@
                 margin-right: 30px;             
                 transition: all .25s;
                 cursor: pointer;
+                @media only screen and (max-width:1080px) {
+                    width: 30px;
+                    height: 30px;
+                    padding: 5px;
+                    margin-right: 15px; 
+                }
                 @media only screen and (max-width:580px) {
                     transform: scale(.8);
                     margin-right: 10px;
@@ -182,19 +232,17 @@
                 outline: none;
                 cursor: pointer;
                 transition: all .25s;
-                @media only screen and (max-width:780px) {
+                @media only screen and (max-width:1080px) {
                     padding: 10px 20px;
-                    font-weight: 700;
-                    font-size: 20px;
+                    font-weight: 500;
+                    font-size: 16px;
                 }
                 @media only screen and (max-width:580px) {
                     padding: 5px 10px;
-                    font-weight: 600;
                     font-size: 14px;
                 } 
                 @media only screen and (max-width:400px) {
                     padding: 5px 8px;
-                    font-weight: 500;
                     font-size: 12px;
                 }
                 &:active,&:hover{

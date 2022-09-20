@@ -1,65 +1,56 @@
 <template>
-  <footer class="footer" :class="nightMode?'footer-night':''">
-    <div class="row">
-        <div class="columns">
-            <div class="col1">
-                <img src="@/assets/logo.png" alt="" class="logo">
-                <div class="social-icons">
-                    <a href=""><img src="@/assets/Facebook.png" alt="" class="icon"></a>
-                    <a href=""><img src="@/assets/phanesImages/Twitter.png" alt="" class="icon"></a>
-                    <a href=""><img src="@/assets/discord.png" alt="" class="icon"></a> 
-                    <a href=""><img src="@/assets/telegram.png" alt="" class="icon"></a>
-                    <a href=""><img src="@/assets/announcement.png" alt="" class="icon"></a> 
-                </div>
-            </div>
-            <div class="col">
-                <h3 class="title">Important Links</h3>
-                <ul class="items">
-                    <li class="item"><a href="#">Phanes Token</a></li>
-                    <li class="item"><a href="#">Governance</a></li>
-                    <li class="item"><a href="#">Indices</a></li>
-                    <li class="item"><a href="#">Docs</a></li>
-                    <li class="item"><a href="#">FAQ</a></li>
-                </ul>
-            </div>
-            <div class="col">
-                <h3 class="title">Support</h3>
-                <ul class="items">
-                    <li class="item"><a href="#">Contact</a></li>
-                    <li class="item"><a href="#">Careers</a></li>
-                    <li class="item"><a href="#">Blog</a></li>
-                    <li class="item"><a href="#">Technical Paper</a></li>
-                </ul>
+  <footer class="row footer">
+    <div class="columns">
+        <div class="col1">
+            <img src="@/assets/phanesImages/logo.png" alt="" class="logo">
+            <div class="social-icons">
+                <a href=""><img src="@/assets/phanesImages/Facebook.png" alt="" class="icon"></a>
+                <a href=""><img src="@/assets/phanesImages/Twitter.png" alt="" class="icon"></a>
+                <a href=""><img src="@/assets/phanesImages/discord.png" alt="" class="icon"></a> 
+                <a href=""><img src="@/assets/phanesImages/telegram.png" alt="" class="icon"></a>
+                <a href=""><img src="@/assets/phanesImages/announcement.png" alt="" class="icon"></a> 
             </div>
         </div>
-        <div class="h-line"></div>
-        <div class="copyright-text">
-            <p class="text">Copyright © 2022 Phanes Network</p>
-            <div class="right-links">
-                <span>All Rights Reserved </span>|
-                <a href=""> Terms and Conditions </a>|
-                <a href=""> Privacy Policy</a>
-            </div>
+        <div class="col">
+            <h3 class="title">Important Links</h3>
+            <ul class="items">
+                <li class="item"><a href="#">Phanes Token</a></li>
+                <li class="item"><a href="#">Governance</a></li>
+                <li class="item"><a href="#">Indices</a></li>
+                <li class="item"><a href="#">Docs</a></li>
+                <li class="item"><a href="#">FAQ</a></li>
+            </ul>
+        </div>
+        <div class="col">
+            <h3 class="title">Support</h3>
+            <ul class="items">
+                <li class="item"><a href="#">Contact</a></li>
+                <li class="item"><a href="#">Careers</a></li>
+                <li class="item"><a href="#">Blog</a></li>
+                <li class="item"><a href="#">Technical Paper</a></li>
+            </ul>
+        </div>
+    </div>
+    <div class="h-line"></div>
+    <div class="copyright-text">
+        <p class="text">Copyright © 2022 Phanes Network</p>
+        <div class="right-links">
+            <span>All Rights Reserved </span>|
+            <a href=""> Terms and Conditions </a>|
+            <a href=""> Privacy Policy</a>
         </div>
     </div>
   </footer>
 </template>
 
 <script>
-    import { mapState } from 'vuex';
 export default {
-    computed:{
-        ...mapState([
-            'nightMode'
-        ])
-    }
 
 }
 </script>
 
 <style lang="scss" scoped>
     .footer{
-        background: linear-gradient(rgba(10, 134, 156, 0.05), rgba(10, 134, 156, 0.034));
         padding-bottom: 50px;
         .columns{
             padding: 109px 24px;
@@ -99,7 +90,7 @@ export default {
                     font-weight: 700;
                     font-size: 20px;
                     line-height: 22px;
-                    color: #141414;
+                    color: #FFFFFF;
                     margin-bottom: 40px;
                     @media only screen and (max-width:720px){
                         margin-bottom: 20px;
@@ -116,14 +107,14 @@ export default {
                         font-weight: 400;
                         font-size: 18px;
                         line-height: 20px;
-                        color: #141414;
+                        color: #EDEDED;
                         transition: all .2s;
                         @media only screen and (max-width: 580px){
                             font-size: 15px;
                             line-height: 15px;
                         }
                         &:hover{
-                            color:#141414;
+                            color:#FFFFFF;
                             font-size: 20px;
                         }
                     }
@@ -149,7 +140,7 @@ export default {
             font-weight: 400;
             font-size: 18px;
             line-height: 30px;
-            color: #070E0C;
+            color: #EDEDED;
             @media only screen and (max-width:580px){
                 font-size: 14px;
                 line-height: 18px;
@@ -174,32 +165,4 @@ export default {
             }
         }
     }
-    .footer-night{
-        background: #070E0C;
-        backdrop-filter: blur(20px);
-        .columns{
-            padding: 109px 24px;
-            .col{
-                .title{
-                    color: #fff;
-                }
-                .items{
-                    list-style: none;
-                    .item a{
-                        color: #EDEDED;
-                        &:hover{
-                            color:#fff;
-                        }
-                    }
-                }
-            }
-        }
-        .h-line{
-            border: 1px solid #4F5580;
-        }
-        .copyright-text{
-            color: #EDEDED;
-        }
-    }
-
 </style>

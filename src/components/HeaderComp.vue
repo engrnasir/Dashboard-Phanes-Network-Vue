@@ -95,7 +95,7 @@ export default {
     <div class="wrapper row">
         <div class="content">
             <div class="left">
-                <div class="heading" :class="nightMode? 'heading-night':''">
+                <div class="dashboard-heading" :class="nightMode? 'dashboard-heading-night':''">
                     <img src="@/assets/dpi.png" alt="">
                     <h1>dpi</h1>
                     <p>(DeFi Pulse Index)</p>
@@ -183,7 +183,7 @@ export default {
         position: relative;
         padding-bottom: 48px;
         .stats{
-            background-image: linear-gradient(rgba(27, 209, 156, 0.6), rgba(27, 209, 156, 0.6)), url('@/assets/stats-bg.png');
+            background-image: linear-gradient(rgba(27, 209, 156, 0.7), rgba(27, 209, 156, 0.7)), url('@/assets/stats-bg.png');
             background-repeat: no-repeat;
             background-size: cover;
             background-position: center;
@@ -219,6 +219,8 @@ export default {
                     width: 100%;
                     display: flex;
                     justify-content: space-between;
+                    flex-wrap: wrap;
+
                     @media only screen and (max-width:560px) {
                         display: grid;
                         grid-template-columns: repeat(2,1fr);
@@ -239,6 +241,7 @@ export default {
                             margin-bottom: 23px;
                             @media only screen and (max-width:780px) {
                                 font-size: 16px;
+                                font-weight: 700;
                             }
                             @media only screen and (max-width:580px) {
                                 margin-bottom: 10px;
@@ -294,7 +297,7 @@ export default {
                 justify-content: flex-start;
             }
             .left{
-                .heading{
+                .dashboard-heading{
                     display: flex;
                     align-items: center;
                     justify-content: flex-start;
@@ -308,6 +311,7 @@ export default {
                         font-weight: 600;
                         font-size: 48px;
                         margin-right: 22px;
+                        color:#070E0C;
                         @media only screen and (max-width:400px) {
                             font-size: 40px;
                         }
@@ -315,13 +319,17 @@ export default {
                     p{
                         font-weight: 500;
                         font-size: 28px;
+                        color:#070E0C;
                         @media only screen and (max-width:400px) {
                             font-size: 20px;
                         }
                     }
                 }
-                .heading-night{
+                .dashboard-heading-night{
                     color:#fff;
+                    h1, p{
+                        color:#fff;
+                    }
                 }
                 .date{
                     display: flex;

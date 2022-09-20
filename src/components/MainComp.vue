@@ -79,12 +79,20 @@ export default {
         display: flex;
         align-items: flex-start;
         justify-content: space-between;
+        @media only screen and (max-width:1120px) {
+            flex-direction: column;
+            align-items: center;
+            padding-bottom: 10px;
+        }
         .tokens{
             width: 62%;  
             display: flex;
             flex-direction: column;
             justify-content: flex-start;
             align-items: flex-start;
+            @media only screen and (max-width:1120px) {
+                width: 100%;
+            }
             table{
                 border-collapse: collapse;
                 width: 100%;                
@@ -202,6 +210,12 @@ export default {
             position: relative;
             width: 35%;
             margin-top: 50px;
+            @media only screen and (max-width:1120px) {
+                width: 60%;
+            }
+            @media only screen and (max-width:680px) {
+                width: 90%;
+            }
             .popup{
                 position: absolute;
                 top: 20px;
@@ -212,7 +226,19 @@ export default {
                 background: #F4F4F4;
                 border: 1px solid #1BD19C;
                 border-radius: 7px;
-
+                @media only screen and (max-width:1320px) {
+                    width:250px;
+                }
+                @media only screen and (max-width:1120px) {
+                    width: 334px;
+                }
+                @media only screen and (max-width:680px) {
+                    width: 250px;
+                }
+                @media only screen and (max-width:480px) {
+                    left: 15%;
+                    top: 40px;
+                }
                 .popup-header{
                     display: flex;
                     align-items: center;

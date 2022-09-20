@@ -3,7 +3,7 @@
     <img src="@/assets/tokenMinterbg.png" alt="" class="tokenMinterbg">
     <div class="row">
         <div class="wrapper">
-            <h2 class="heading">Mint your token in few easy steps</h2>
+            <h2 class="tokenMinter-heading">Mint your token in few easy steps</h2>
             <p class="snippets">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Eu, eros, vitae amet faucibus bibendum. A venenatis velit tellus nunc, ultricies. Nec tortor facilisi tempus eget commodo varius. Adipiscing tempus nec eu accumsan tortor. Nunc velit ridiculus egestas est est donec tristique. </p>
             <form>
                 <label for="tokenName">
@@ -46,7 +46,7 @@ export default {
 
 <style lang="scss" scoped>
     .tokenMinter{   
-        height: 882px;
+        min-height: 882px;
         position: relative;
         .tokenMinterbg{
             width: 60%;
@@ -55,13 +55,17 @@ export default {
             top: 0;
             right: 0;
             opacity: .5;
+            @media only screen and (max-width:640px){
+                width: 80%;
+                opacity: .3;
+            }
         }
     }
     .tokenMinter-night{
         background: #070E0C;
         backdrop-filter: blur(20px);
         .wrapper{
-            .heading{
+            .tokenMinter-heading{
                 color: #fff;
             }
             .snippets{
@@ -84,12 +88,18 @@ export default {
     .wrapper{
         width: 50%;
         padding: 40px 0 80px 0;
-
-        .heading{
+        @media only screen and (max-width:640px){
+            width: 90%;
+        }
+        @media only screen and (max-width:420px){
+            width: 100%;
+        }
+        .tokenMinter-heading{
             font-weight: 700;
             font-size: 32px;
             color: #070E0C;
             margin-bottom: 20px;
+            
         }
         .snippets{
             font-weight: 500;
@@ -119,6 +129,9 @@ export default {
                     font-size: 16px;
                     padding: 16px 15px;
                     margin-bottom: 32px;
+                    @media only screen and (max-width:640px){
+                        width: 100%;
+                    }
                     &:focus{
                         outline: 1px solid #00ca91;
                     }
@@ -135,6 +148,9 @@ export default {
                 color: #FFFFFF;
                 border: none;
                 cursor: pointer;
+                @media only screen and (max-width:640px){
+                    width: 100%;
+                }
                 transition: background-color 0.2s;
                 &:hover{
                     background: #09976E;

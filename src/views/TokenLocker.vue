@@ -1,5 +1,5 @@
 <template>
-    <div class="liquidityLocker" :class="nightMode? 'liquidityLocker-night':''">
+    <div class="tokenLocker" :class="nightMode? 'tokenLocker-night':''">
       <div class="row">
           <div class="filterbar" :class="nightMode? 'filterbar-night':''">
               <div class="searchbar">
@@ -73,12 +73,12 @@
   </script>
   
   <style lang="scss" scoped>
-      .liquidityLocker{
+      .tokenLocker{
           padding: 70px 0;
       }
-      .liquidityLocker-night{
+      .tokenLocker-night{
         background: #070E0C;
-          backdrop-filter: blur(20px);
+        backdrop-filter: blur(20px);
       }
   
       .filterbar{
@@ -91,6 +91,11 @@
               height: 42px;
               border: 1px solid #CBCBCB;
               border-radius: 60px;
+              @media only screen and (max-width:980px){
+                width: 283px;
+                height: 32px;
+                margin-right: 15px;
+                }
               .searchInput{
                   width: 100%;
                   height: 100%;
@@ -103,6 +108,10 @@
                   color: #646464;
                   padding: 0 30px;
                   padding-right: 60px;
+                  @media only screen and (max-width:980px){
+                    font-size: 14px;
+                    padding: 0 15px;
+                }
                   &:focus{
                           border: 1px solid #1BD19C;
                           border-radius: 60px;
@@ -113,13 +122,16 @@
                   right: 30px;
                   top: 11.5px;
                   width: 19px;
-  
+                  @media only screen and (max-width:980px){
+                    right: 15px;
+                    width: 15px;
+                    top: 8px;
+                    right: 10px;
+                }
               }
           }
           .sortWrapper{
             position: relative;
-            width: 166px;
-            height: 42px;
             .sortPopup{
                 opacity: 1;
                 width: 100%;
@@ -154,8 +166,8 @@
             }
         }
           .sortButton{
-              width: 100%;
-              height: 100%;
+            width: 166px;
+            height: 42px;
               border: 1px solid #070E0C;
               border-radius: 25px;
               display: flex;
@@ -165,9 +177,18 @@
               font-size: 18px;
               color: #070E0C;
               cursor: pointer;
+              @media only screen and (max-width:980px){
+                width: 120px;
+                height: 30px;
+                font-size: 14px;
+             }
               img{
                   width: 26px;
                   margin-left: 17px;
+                  @media only screen and (max-width:980px){
+                    width: 16px;
+                    margin-left: 10px;
+                }
               }
           }
       }
@@ -190,6 +211,13 @@
               background: linear-gradient(95.34deg, rgba(9, 151, 110, 0.1) -21.44%, rgba(8, 79, 101, 0.1) 108.23%);
               border-radius: 8px;
               margin-bottom: 40px;
+              @media only screen and (max-width:980px){
+                flex-direction: column;
+                align-items: flex-start;
+                }
+                &>*{
+                    margin-bottom: 10px;
+                }
               .card-heading{
                   display: flex;
                   align-items: center;
@@ -211,6 +239,12 @@
                   }
               }
               .col{
+                @media only screen and (max-width:980px){
+                    width: 100%;
+                    display: flex;
+                    align-items: center;
+                    justify-content: space-between;
+                }
                   .title{
                       font-weight: 500;
                       font-size: 20px;

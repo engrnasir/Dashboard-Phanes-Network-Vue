@@ -7,9 +7,9 @@
     <div class="overlay" @click="toggleStakingPopup(false)" v-show="showStakingPopup"></div>
     <StakingPopup v-show="showStakingPopup"/>
 
-    <Navbar/>
+    <!-- <Navbar/> -->
     <router-view/>
-    <FooterComp/>
+    <!-- <FooterComp/> -->
     
 </template>
 <script>
@@ -40,7 +40,8 @@ import StakingPopup from "./components/StakingPopup.vue";
   }
 </script>
 <style lang="scss">
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800;900&display=swap');
 *,*::after,*::before{
   padding: 0;
   margin: 0;
@@ -75,5 +76,8 @@ a{
     top: 0;
     left: 0;
     z-index: 999;
+  }
+  a{
+    text-decoration: none;
   }
 </style>
