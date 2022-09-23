@@ -2,23 +2,25 @@
   <div class="liquidityLocker" :class="nightMode? 'liquidityLocker-night':''">
     <div class="row">
         <div class="filterbar" :class="nightMode? 'filterbar-night':''">
-            <div class="searchbar">
+            <div v-if="createLock"></div>
+            <div class="searchbar" v-else>
                 <input type="text" class="searchInput" placeholder="Pair name or address">
                 <img src="@/assets/searchIcon-night.png" class="searchIcon" alt="" v-if="nightMode">
                 <img src="@/assets/searchIcon.png" class="searchIcon" alt="" v-else>
             </div>
-            <div class="sortWrapper" :class="nightMode? 'sortWrapper-night':''">
-                <div class="sortButton" @click="showSortPopup=!showSortPopup">
-                    Sort By <img src="@/assets/sort-night.png" alt="">
-                </div>
-                <ul class="sortPopup" :class="showSortPopup? '':'hideSortPopup'">
-                    <li class="sortItem">APR</li>
-                    <li class="sortItem">Next In</li>
-                    <li class="sortItem">Amount</li>
-                </ul>
+            <div class="createLock">
+                <p :class="createLock? 'active-lock':''" @click="createLock=true">createLock</p>
+                <p :class="createLock? '':'active-lock'" @click="createLock=false">Edit/Withdraw</p>
             </div>
         </div>
-        <ul class="cards">
+        <div class="lockWrapper" v-if="createLock" :class="nightMode? 'lockWrapper-night':''">
+            <h3 class="message">Gain investors’ trust by locking your project’s liquidity. This section is only for project deployer.</h3>
+            <div class="searchbox">
+                <input type="text" class="searchInput" placeholder="Please enter your pair address">
+                <img src="@/assets/searchIcon-night.png" class="searchIcon" alt="">
+            </div>
+        </div>
+        <ul class="cards" v-else>
             <li class="card" v-for="(card, index) in cards" :key="index" :class="nightMode? 'card-night':''">
                 <div class="card-heading">
                     <div class="icons">
@@ -62,6 +64,7 @@
 export default {
     data(){
         return{
+            createLock:false,
             showSortPopup:false,
             cards:[
                 { icon1:'tera.png', icon2:'eth-icon.png', title1:'tera', title2:'eth', apr:99.9, nextIn:'6 Months', amount:38.72, liquidity:'6.23 M', },
@@ -95,6 +98,10 @@ export default {
         display: flex;
         align-items: center;
         justify-content: space-between;
+        @media only screen and (max-width: 600px) {
+            flex-direction: column;
+            justify-content: center;
+        }
         .searchbar{
             position: relative;
             width: 483px;
@@ -105,6 +112,12 @@ export default {
                 width: 283px;
                 height: 32px;
                 margin-right: 15px;
+            }
+            @media only screen and (max-width: 600px) {
+                width: 80%;
+                min-width: 330px;
+                margin-right: 0;
+                margin-bottom: 20px;
             }
             .searchInput{
                 width: 100%;
@@ -140,74 +153,119 @@ export default {
                 }
             }
         }
-        .sortWrapper{
-            position: relative;
-            .sortPopup{
-                opacity: 1;
-                width: 100%;
-                position: absolute;
-                top: 50px;
-                z-index: 999;
-                background-color: #fff;
-                list-style: none;
-                padding: 25px 0px;
-                border-radius: 20px;
-                color: #09976E;
-                border: 1px solid #09976E;
-                transition: all .2s;
-                .sortItem{
-                    padding: 0 30px;
-                    font-weight: 600;
-                    &:hover{
-                        cursor: pointer;
-                        background: rgb(134, 134, 134);
-                        color: #1BD19C;
-                    }
-                }
-              }
-              .hideSortPopup{
-                opacity: 0;
-                z-index: -2;
-              }
-          }
-          .sortWrapper-night{
-            .sortPopup{
-                background: #2a302e;
-            }
-        }
-        .sortButton{
-            width: 166px;
-            height: 42px;
-            border: 1px solid #070E0C;
-            border-radius: 25px;
+        .createLock{
             display: flex;
             align-items: center;
-            justify-content: center;
-            font-weight: 500;
-            font-size: 18px;
-            color: #070E0C;
-            cursor: pointer;
-            @media only screen and (max-width:980px){
-                width: 120px;
-                height: 30px;
-                font-size: 14px;
-            }
-            img{
-                width: 26px;
-                margin-left: 17px;
+            border-radius: 8px;
+            border: 1px solid #095C67;
+            overflow: hidden;
+            justify-self: flex-end;
+            p{  
+                min-width: 115px;
+                text-align: center;
+                padding: 14px 10px;
+                text-transform: capitalize;
+                font-weight: 600;
+                font-size: 16px;
+                color: #000000;
+                background: transparent;
                 @media only screen and (max-width:980px){
-                    width: 16px;
-                    margin-left: 10px;
+                    padding: 5px 10px;
                 }
+                &:hover{
+                    cursor: pointer;
+                    background: linear-gradient(180deg, #095866 0%, #09856C 100%);
+                    color: #fff;
+                }
+            }
+            .active-lock{
+                background: linear-gradient(180deg, #095866 0%, #09856C 100%);
+                color: #fff;
             }
         }
     }
     .filterbar-night{
-        .sortButton{
-            border: 1px solid #C5C5C5;
-            color: #C5C5C5;           
+        .createLock{
+            p{  
+                color: #ffffff;
+            }
+        }     
+    }
+    .lockWrapper{
+        width: 100%;
+        min-height: 80vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+        padding: 40px 0;
+        text-align: center;
+        .searchbox{
+            position: relative;
+            width: 655px;
+            height: 119px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(180deg, #063841 0%, #054d3e 100%);
+            backdrop-filter: blur(20px);
+            border-radius: 10px;
+            margin-top: 40px;
+            @media only screen and (max-width:680px){
+                width: 540px;
+                height: 119px;
+            }
+            @media only screen and (max-width:580px){
+                width: 340px;
+                height: 80px;
+            }
+        
+            .searchInput{
+                width: 483px;
+                height: 42px;
+                outline: none;
+                border: 1px solid #CBCBCB;
+                border-radius: 60px;
+                background: transparent;
+                font-style: italic;
+                font-weight: 500;
+                font-size: 18px;
+                color: #ffffff;
+                padding: 0 30px;
+                padding-right: 60px;
+                @media only screen and (max-width:680px){
+                    width: 350px;
+                    border-radius: 30px;
+                    height: 60px;
+                    padding: 0 20px;
+                    padding-right: 40px;
+                }
+                @media only screen and (max-width:580px){
+                    width: 280px;
+                    height: 40px;
+                    font-size: 16px;
+                }
+
+                &:focus{
+                    border: 1px solid #1BD19C;
+                    border-radius: 60px;
+                }
+            }
+            .searchIcon{
+                position: absolute;
+                right: 100px;
+                width: 19px;
+                @media only screen and (max-width:680px){
+                    right: 120px;
+                }
+                @media only screen and (max-width:580px){
+                    right: 40px;
+                }
+            }
         }
-      
+    }
+    .lockWrapper-night{
+        color: #fff;
     }
     .cards{
         padding: 40px 0;

@@ -55,40 +55,49 @@
 </script>
 
 <template>
-  <nav class="nav" :class="nightMode?'nav-night':''">
-    <img src="@/assets/Logo-night.png" alt="" class="logo" v-if="nightMode" @click="$router.push('/')">  
-    <img src="@/assets/logo.png" alt="" class="logo" v-else @click="$router.push('/')">
-    <div :class="hideMenu? 'hideButtons':''">
-        <ul class="buttons" :class="nightMode?'buttons-night':''">
-            <li><router-link to="" @click="setActive" class="btn btn1">Index</router-link></li>
-            <li><router-link to="" @click="setActive" class="btn btn2">Liquidity Locker</router-link></li>
-            <li><router-link to="" @click="setActive" class="btn btn3">Token Locker</router-link></li>
-            <li><router-link to="" @click="setActive" class="btn btn4">Token Minter</router-link></li>
-            <li><router-link to="" @click="setActive" class="btn btn5">Staking</router-link></li>
-            <li><router-link to="" @click="setActive" class="btn btn6">Multisender</router-link></li>
-        </ul>
+    <div class="wrapper" :class="nightMode?'nav-night':''">
+        <nav class="nav">
+          <img src="@/assets/Logo-night.png" alt="" class="logo" v-if="nightMode" @click="$router.push('/')">  
+          <img src="@/assets/logo.png" alt="" class="logo" v-else @click="$router.push('/')">
+          <div>
+              <ul class="buttons" :class="nightMode?'buttons-night':''">
+                  <li><router-link to="" @click="setActive" class="btn btn1">Index</router-link></li>
+                  <li><router-link to="" @click="setActive" class="btn btn2">Liquidity Locker</router-link></li>
+                  <li><router-link to="" @click="setActive" class="btn btn3">Token Locker</router-link></li>
+                  <li><router-link to="" @click="setActive" class="btn btn4">Token Minter</router-link></li>
+                  <li><router-link to="" @click="setActive" class="btn btn5">Staking</router-link></li>
+                  <li><router-link to="" @click="setActive" class="btn btn6">Multisender</router-link></li>
+              </ul>
+          </div>
+          <div class="right">
+              <img src="@/assets/menu.png" alt="" class="menuIcon" @click="hideMenu = !hideMenu">
+              <img src="@/assets/dayIcon.png" alt="" class="toggleBtn" v-if="nightMode" @click="changeMode(!nightMode)">
+              <img src="@/assets/nightIcon.png" alt="" class="toggleBtn" v-else @click="changeMode(!nightMode)">
+              
+              <button class="connect">Connect</button>
+          </div>
+      
+        </nav>
+        <button class="selectNetwork">Select Network</button>
+        <div :class="hideMenu? 'hideButtons':''">
+            <ul class="buttons-mobile" :class="nightMode?'buttons-mobile-night':''">
+                <li><router-link to="" @click="setActive" class="btn btn1">Index</router-link></li>
+                <li><router-link to="" @click="setActive" class="btn btn2">Liquidity Locker</router-link></li>
+                <li><router-link to="" @click="setActive" class="btn btn3">Token Locker</router-link></li>
+                <li><router-link to="" @click="setActive" class="btn btn4">Token Minter</router-link></li>
+                <li><router-link to="" @click="setActive" class="btn btn5">Staking</router-link></li>
+                <li><router-link to="" @click="setActive" class="btn btn6">Multisender</router-link></li>
+            </ul>
+        </div>
     </div>
-    <div class="right">
-        <img src="@/assets/menu.png" alt="" class="menuIcon" @click="hideMenu = !hideMenu">
-        <img src="@/assets/dayIcon.png" alt="" class="toggleBtn" v-if="nightMode" @click="changeMode(!nightMode)">
-        <img src="@/assets/nightIcon.png" alt="" class="toggleBtn" v-else @click="changeMode(!nightMode)">
-        
-        <button class="connect">Connect</button>
-    </div>
-
-  </nav>
 </template>
 <style lang="scss" scoped>
-    .nav{
-        position: relative;
-        z-index: 1;
-        width: 100%;
+    .wrapper{
+        display: flex;
+        flex-direction: column;
+        padding: 15px 24px;
         background: linear-gradient(180deg, rgba(243, 243, 243, 0.132) 0%, rgba(243, 243, 243, 0.044) 100%);
         backdrop-filter: blur(20px);
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        padding: 15px 24px;
         box-shadow: 0 0 10px 10px rgba(0, 0, 0, 0.01);
         @media only screen and (min-width:1600px){
             padding: 15px 100px;
@@ -96,6 +105,15 @@
         @media only screen and (max-width:580px){
             padding: 15px 10px;
         }
+    }
+    .nav{
+        position: relative;
+        z-index: 1;
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        margin-bottom: 10px;
         .logo{
             cursor: pointer;
             width: 130px;       
@@ -109,24 +127,9 @@
             align-items: center;
             justify-content: center;
             list-style: none;
-            li{
-                @media only screen and (max-width:980px) {
-                    width: 100%;
-                }
+            @media only screen and (max-width:980px){
+                display: none;
             }
-
-            @media only screen and (max-width:980px) {
-                position: absolute;
-                top: 70px;
-                left: 0;
-                flex-direction: column;
-                width: 100%;
-                align-items: flex-start;
-                background: #f3f3f3;
-                z-index: 999;
-                box-shadow: 0 10px 10px 10px rgba(0, 0, 0, 0.1);
-                padding: 15px;
-            }   
             &>*:not(:last-child){
                 margin-right: 40px;
                 @media only screen and (max-width:1480px) {
@@ -146,12 +149,6 @@
                 }
                 @media only screen and (max-width:1130px) {
                     font-size: 16px;
-                }
-                @media only screen and (max-width:980px) {
-                    display: inline-block;
-                    min-width: 100%;
-                    border-radius: 0px;
-                    margin-right: 0px;
                 }
                 &:active,&:hover{
                     background: rgba(9, 151, 110, 0.15);
@@ -177,12 +174,6 @@
             .active{
                 background: #1B201E;
                 color: #ADADAD;
-            }
-        }
-        .hideButtons{
-            display: block;
-            @media only screen and (max-width:980px){
-                display: none;
             }
         }
         .right{
@@ -222,7 +213,7 @@
                 } 
             }
             .connect{
-                padding: 15px 27px;
+                padding: 10px 27px;
                 background: linear-gradient(95.34deg, #09976E -21.44%, #084F65 108.23%);
                 color: #fff;
                 border-radius: 8px;
@@ -237,14 +228,16 @@
                     font-weight: 500;
                     font-size: 16px;
                 }
-                @media only screen and (max-width:580px) {
-                    padding: 5px 10px;
+                @media only screen and (max-width:980px) {
+                    padding: 10px 27px;
+                    width: 134px;
+                    font-size: 15px;
+                } 
+                @media only screen and (max-width:420px) {
+                    width: 100px;
+                    padding: 10px 5px;
                     font-size: 14px;
                 } 
-                @media only screen and (max-width:400px) {
-                    padding: 5px 8px;
-                    font-size: 12px;
-                }
                 &:active,&:hover{
                     background:  #09976E;
                 }
@@ -255,6 +248,81 @@
     .nav-night{
         background: rgba(10, 14, 11, 0.999);
         backdrop-filter: blur(20px);
+    }
+
+    .selectNetwork{
+        align-self: flex-end;
+        width: 134px;
+        padding: 10px;
+        background: linear-gradient(95.34deg, #09976E -21.44%, #084F65 108.23%);
+        color: #fff;
+        border-radius: 8px;
+        font-weight: 700;
+        font-size: 15px;
+        border: none;
+        outline: none;
+        cursor: pointer;
+        transition: all .25s;
+        @media only screen and (max-width:1080px) {
+            width: 100px;
+        }
+        @media only screen and (max-width:980px) {
+            width: 134px;
+            font-size: 15px;
+        } 
+        @media only screen and (max-width:420px) {
+            width: 100px;
+            padding: 10px 5px;
+            font-size: 12px;
+        } 
+        &:active,&:hover{
+            background:  #09976E;
+        }
+    }
+    .buttons-mobile{
+        display: none;
+        list-style: none;
+        width: 100%;
+        z-index: 999;
+        color: #1B201E;
+        padding: 15px;
+        li{
+            width: 100%;
+        }
+
+        .btn{
+            font-weight: 500;
+            font-size: 18px;
+            padding: 10px 20px;
+            border-radius: 7px;
+            color: #070E0C;
+            transition: all .25s;
+
+            display: inline-block;
+            min-width: 100%;
+            border-radius: 0px;
+            margin-right: 0px;
+        }
+        .active{
+            background: rgba(9, 151, 110, 0.15);
+            color: #09976E;
+        }           
+
+        @media only screen and (max-width:980px){
+            display: block;
+        }
+    }
+    .buttons-mobile-night{
+        color: #ffffff;
+        .btn{
+            color: #ffffff;
+        }
+    }
+    .hideButtons{
+        display: block;
+        @media only screen and (max-width:980px){
+            display: none;
+        }
     }
 
 </style>

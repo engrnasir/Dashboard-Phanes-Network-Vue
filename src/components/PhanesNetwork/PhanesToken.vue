@@ -5,7 +5,7 @@
                 <img src="@/assets/phanesImages/tokenIcon.png" alt="" class="icon">
                 <h3 class="title">Phanes Tokens</h3>
                 <p class="snippet">Phanes ecosystem will be governed by PHANES token. Phanes token is our indices token, a basket of multiple meme tokens across multiple blockchains. With this token, the Phanes community makes decisions on activities in the Phanes ecosystem.</p>
-                <button class="learnMore-btn"><a href="https://docs.phanes.network/phanes-token-metrics">Learn more</a></button>
+                <button class="learnMore-btn"><a href="https://docs.phanes.network/phanes-token-metrics" target="_blank">Learn more</a></button>
             </div>
         </div>
         <div class="token rightToken">
@@ -13,7 +13,7 @@
                 <img src="@/assets/phanesImages/tokenIcon.png" alt="" class="icon">
                 <h3 class="title">Phanes Index Tokens</h3>
                 <p class="snippet">Phanes Index token is our indices token, a basket of multiple but not limited to meme tokens across multiple blockchains. PHANES INDEX token will be available only on the ETH chain and Dogechain.</p>
-                <button class="learnMore-btn"><a href="https://docs.phanes.network/phaes-index-portfolio-token-metrics">Learn more</a></button>
+                <button class="learnMore-btn"><a href="https://docs.phanes.network/phaes-index-portfolio-token-metrics" target="_blank">Learn more</a></button>
             </div>
         </div>
 

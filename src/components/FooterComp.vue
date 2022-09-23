@@ -5,11 +5,11 @@
             <div class="col1">
                 <img src="@/assets/logo.png" alt="" class="logo">
                 <div class="social-icons">
-                    <a href=""><img src="@/assets/Facebook.png" alt="" class="icon"></a>
-                    <a href=""><img src="@/assets/phanesImages/Twitter.png" alt="" class="icon"></a>
-                    <a href=""><img src="@/assets/discord.png" alt="" class="icon"></a> 
-                    <a href=""><img src="@/assets/telegram.png" alt="" class="icon"></a>
-                    <a href=""><img src="@/assets/announcement.png" alt="" class="icon"></a> 
+                    <a href="" target="_blank"><fonts-icon :icon="{ prefix: 'fab', iconName: 'facebook-square' }"/></a>
+                    <a href="" target="_blank"><fonts-icon :icon="{ prefix: 'fab', iconName: 'twitter-square' }"/></a>
+                    <a href="" target="_blank"><fonts-icon :icon="{ prefix: 'fab', iconName: 'discord' }"/></a>
+                    <a href="" target="_blank"><fonts-icon :icon="{ prefix: 'fab', iconName: 'telegram' }"/></a>
+                    <a href="" target="_blank"><fonts-icon :icon="{ prefix: 'fab', iconName: 'facebook-square' }"/></a>
                 </div>
             </div>
             <div class="col">
@@ -25,10 +25,10 @@
             <div class="col">
                 <h3 class="title">Support</h3>
                 <ul class="items">
-                    <li class="item"><a href="#">Contact</a></li>
-                    <li class="item"><a href="#">Careers</a></li>
-                    <li class="item"><a href="#">Blog</a></li>
-                    <li class="item"><a href="#">Technical Paper</a></li>
+                    <li class="item"><a href="#" target="_blank">Contact</a></li>
+                    <li class="item"><a href="#" target="_blank">Careers</a></li>
+                    <li class="item"><a href="#" target="_blank">Blog</a></li>
+                    <li class="item"><a href="#" target="_blank">Technical Paper</a></li>
                 </ul>
             </div>
         </div>
@@ -37,8 +37,8 @@
             <p class="text">Copyright © 2022 Phanes Network</p>
             <div class="right-links">
                 <span>All Rights Reserved </span>|
-                <a href=""> Terms and Conditions </a>|
-                <a href=""> Privacy Policy</a>
+                <a href="" target="_blank"> Terms and Conditions </a>|
+                <a href="" target="_blank"> Privacy Policy</a>
             </div>
         </div>
     </div>
@@ -86,10 +86,11 @@ export default {
                     &>*:not(:last-child){
                         margin-right: 24px;
                     }
-                    .icon{
-                        height: 24px;
+                    a{
+                        color: #1BD19C;
+                        font-size: 24px;
                         @media only screen and (max-width: 580px){
-                            height: 18px;
+                            font-size: 18px;
                         }
                     }
                 }
@@ -179,6 +180,13 @@ export default {
         backdrop-filter: blur(20px);
         .columns{
             padding: 109px 24px;
+            .col1{
+                .social-icons{
+                    a{
+                        color: #fff;
+                    }
+                }
+            }
             .col{
                 .title{
                     color: #fff;

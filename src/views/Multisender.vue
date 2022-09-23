@@ -5,8 +5,8 @@
             <div class="send">
                 <p class="text">send</p>
                 <div class="token">
-                    <p>eth</p>
-                    <p>token</p>
+                    <p class="token-item" @click="activeToken=false" :class="activeToken?'':'active-token'">eth</p>
+                    <p class="token-item" @click="activeToken=true" :class="activeToken?'active-token':''">token</p>
                 </div>
             </div>
             <div class="inputToken">
@@ -48,7 +48,7 @@
 
                 </ul>
             </div>
-            <p class="inspiredText">Inspired by <span>Disperse.app</span></p>
+            <p class="inspiredText">Inspired by <a href="" target="_blank">Disperse.app</a></p>
             <button class="sendBtn">Send</button>
         </div>
     </div>
@@ -58,10 +58,17 @@
 <script>
     import { mapState } from 'vuex';
 export default {
+    data(){
+        return{
+            activeToken:false,
+        }
+    },
     computed:{
         ...mapState([
             'nightMode'
         ])
+    },
+    methods:{
     }
 
 }
@@ -113,6 +120,10 @@ export default {
                             background: linear-gradient(180deg, #095866 0%, #09856C 100%);
                             color: #fff;
                         }
+                    }
+                    .active-token{
+                        background: linear-gradient(180deg, #095866 0%, #09856C 100%);
+                        color: #fff;
                     }
                 }
             }
@@ -292,7 +303,8 @@ export default {
                 font-size: 18px;
                 color: #070E0C;
                 margin-bottom: 18px;
-                span{
+                a{
+                    text-decoration: none;
                     color:#086A68;
                 }
             }
