@@ -16,38 +16,31 @@ const routes = [
   {
     path: '/dashboard',
     component: Dashboard,
-    children:[
-      {
-        path: '/dashboard',
-        component: Index
-      },
-      {
-        path: '/liquidityLocker',
-        name: 'LiquidityLockerView',
-        component: LiquidityLocker
-      },
-      {
-        path: '/tokenLocker',
-        name: 'TokenLockerView',
-        component: TokenLocker
-      },
-      {
-        path: '/tokenMinter',
-        name: 'TokenMinterView',
-        component: TokenMinter
-      },
-      {
-        path: '/staking',
-        name: 'StakingView',
-        component: Staking
-      },
-      {
-        path: '/multisender',
-        name: 'Multisender',
-        component: Multisender
-      },
-    ]
-
+  },
+  {
+    path: '/liquidityLocker',
+    name: 'LiquidityLockerView',
+    component: LiquidityLocker
+  },
+  {
+    path: '/tokenLocker',
+    name: 'TokenLockerView',
+    component: TokenLocker
+  },
+  {
+    path: '/tokenMinter',
+    name: 'TokenMinterView',
+    component: TokenMinter
+  },
+  {
+    path: '/staking',
+    name: 'StakingView',
+    component: Staking
+  },
+  {
+    path: '/multisender',
+    name: 'Multisender',
+    component: Multisender
   },
   
 ]
