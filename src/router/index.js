@@ -9,16 +9,16 @@ import Staking from '../views/Staking.vue'
 import Multisender from '../views/Multisender.vue'
 
 const routes = [
+  // {
+  //   path: '/',
+  //   component: HomeView,
+  // },
   {
-    path: '/dashboard',
-    component: Dashboard,
-  },
-  {
-    path: '/dashboard',
+    path: '/',
     component: Dashboard,
     children:[
       {
-        path: '/dashboard',
+        path: '/',
         component: Index
       },
       {
