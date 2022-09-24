@@ -10,8 +10,8 @@ import Multisender from '../views/Multisender.vue'
 
 const routes = [
   {
-    path: '/',
-    component: HomeView,
+    path: '/dashboard',
+    component: Dashboard,
   },
   {
     path: '/dashboard',
