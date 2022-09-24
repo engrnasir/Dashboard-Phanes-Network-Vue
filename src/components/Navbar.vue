@@ -39,11 +39,11 @@
                 if(btn.classList.contains('btn1')){                     
                     this.$router.push('/dashboard')
                 }
-                else if(btn.classList.contains('btn2')){this.$router.push('/liquidityLocker')}
-                else if(btn.classList.contains('btn3')){this.$router.push('/tokenLocker')}
-                else if(btn.classList.contains('btn4')){this.$router.push('/tokenMinter')}
-                else if(btn.classList.contains('btn5')){this.$router.push('/staking')}
-                else if(btn.classList.contains('btn6')){this.$router.push('/multisender')}
+                else if(btn.classList.contains('btn2')){this.$router.push('/dashboard/liquidityLocker')}
+                else if(btn.classList.contains('btn3')){this.$router.push('/dashboard/tokenLocker')}
+                else if(btn.classList.contains('btn4')){this.$router.push('/dashboard/tokenMinter')}
+                else if(btn.classList.contains('btn5')){this.$router.push('/dashboard/staking')}
+                else if(btn.classList.contains('btn6')){this.$router.push('/dashboard/multisender')}
                 this.hideMenu = !this.hideMenu
             }
     

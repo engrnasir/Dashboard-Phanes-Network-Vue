@@ -9,40 +9,40 @@ import Staking from '../views/Staking.vue'
 import Multisender from '../views/Multisender.vue'
 
 const routes = [
-  // {
-  //   path: '/',
-  //   component: HomeView,
-  // },
   {
     path: '/',
+    component: HomeView,
+  },
+  {
+    path: '/dashboard',
     component: Dashboard,
     children:[
       {
-        path: '/',
+        path: '/dashboard',
         component: Index
       },
       {
-        path: '/liquidityLocker',
+        path: '/dashboard/liquidityLocker',
         name: 'LiquidityLockerView',
         component: LiquidityLocker
       },
       {
-        path: '/tokenLocker',
+        path: '/dashboard/tokenLocker',
         name: 'TokenLockerView',
         component: TokenLocker
       },
       {
-        path: '/tokenMinter',
+        path: '/dashboard/tokenMinter',
         name: 'TokenMinterView',
         component: TokenMinter
       },
       {
-        path: '/staking',
+        path: '/dashboard/staking',
         name: 'StakingView',
         component: Staking
       },
       {
-        path: '/multisender',
+        path: '/dashboard/multisender',
         name: 'Multisender',
         component: Multisender
       },
