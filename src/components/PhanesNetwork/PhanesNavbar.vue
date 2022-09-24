@@ -8,7 +8,7 @@
                 <li class="item" @click="scrollTo('docs')">Docs</li>
                 <li class="item" @click="scrollTo('faqs')">FAQ</li>
             </ul>
-            <button class="launch-btn"><a @click="$router.push('/dashboard')" href="" target="_blank">Launch App</a></button>
+            <button class="launch-btn"><router-link to="/dashboard" tag="a" target="_blank">Launch App</router-link></button>
         </nav>
     </div>
 </template>
