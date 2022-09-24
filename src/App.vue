@@ -50,6 +50,7 @@ import StakingPopup from "./components/StakingPopup.vue";
 html{
   font-family: 'Poppins', sans-serif;
   background: #f3f3f3;
+  scroll-behavior: smooth;
 }
 a{
   text-decoration: none;

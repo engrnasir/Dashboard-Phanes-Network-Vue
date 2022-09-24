@@ -37,10 +37,10 @@ export default {
     @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800;900&display=swap');
   .home{
     // font-family: 'Poppins', sans-serif;
-    font-family: 'Montserrat', sans-serif;
-    background-color: #000906;
-    background-color: rgb(7, 14, 12);
-    scroll-behavior: smooth;
+      font-family: 'Montserrat', sans-serif;
+      background-color: #000906;
+      background-color: rgb(7, 14, 12);
+      scroll-behavior: smooth;
   }
   .row{
     width: 100%;
