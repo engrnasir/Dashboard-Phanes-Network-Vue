@@ -8,7 +8,7 @@
                 <li class="item" @click="scrollTo('docs')">Docs</li>
                 <li class="item" @click="scrollTo('faqs')">FAQ</li>
             </ul>
-            <button class="launch-btn"><router-link to="/dashboard" target="_blank">Launch App</router-link></button>
+            <router-link class="launch-btn" to="/dashboard" target="_blank">Launch App</router-link>
         </nav>
     </div>
 </template>
@@ -105,9 +105,6 @@ export default {
         font-size: 18px;
         color: #FFFFFF;
         cursor: pointer;
-        a{
-            color: #fff;
-        }
         
         @media only screen and (max-width:980px){
             width: 120px;
