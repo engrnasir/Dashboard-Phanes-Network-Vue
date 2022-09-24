@@ -78,7 +78,7 @@ export default {
                         margin-right: 24px;
                     }
                     a{
-                        color: #ffffff;
+                        color: #1BD19C;
                         font-size: 24px;
                         @media only screen and (max-width: 580px){
                             font-size: 18px;

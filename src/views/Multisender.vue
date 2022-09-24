@@ -9,7 +9,7 @@
                     <p class="token-item" @click="activeToken=true" :class="activeToken?'active-token':''">token</p>
                 </div>
             </div>
-            <div class="inputToken">
+            <div class="inputToken" v-if="activeToken">
                 <input type="text" placeholder=" Input Token Contract  Address">
                 <button class="load">Load</button>
             </div>

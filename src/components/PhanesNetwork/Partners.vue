@@ -14,7 +14,7 @@
 export default {
     data(){
         return{
-            partners : ['partner1.png','partner2.png','partner3.png','partner4.png','partner5.png','partner6.png',]
+            partners : []
         }
     }
 
@@ -23,6 +23,8 @@ export default {
 
 <style lang="scss" scoped>
     .parteners{
+        display: none;
+
         position: relative;
         margin-bottom: 157px;
         background-color: #011e15;

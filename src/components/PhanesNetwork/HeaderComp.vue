@@ -5,7 +5,6 @@
             <div class="content">
                 <h1 class="heading">A Multi-Chain Defi Platform For Meme Community.</h1>
                 <p class="snippet">Phanes network is the first crypto Indices offering multichain Defi services on Dogechain network.</p>
-                <button class="read-btn">Read more</button>
             </div>
         </div>
         <div class="bottom-content">
@@ -186,39 +185,6 @@ export default {
                 width: 100%;
                 max-width: 340px;
 
-            }
-        }
-        .read-btn{
-            border: none;
-            outline: none;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            width: 167px;
-            height: 41px;
-            background: linear-gradient(95.34deg, #09976E -21.44%, #084F65 108.23%);
-            border-radius: 8px;
-            font-weight: 700;
-            font-size: 20px;
-            color: #FFFFFF;
-            margin-top: 33px;
-            @media only screen and (max-width:980px){
-            width: 120px;
-            height: 36px;
-            border-radius: 5px;
-            font-size: 14px;
-             }
-            @media only screen and (max-width:780px){
-                width: 100px;
-                height: 26px;
-                font-size: 12px;
-            }
-            @media only screen and (max-width:580px){
-                // width 340
-                width: 80px;
-                height: 24px;
-                font-weight: 500;
-                font-size: 12px;
             }
         }
     }
