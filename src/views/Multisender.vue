@@ -16,7 +16,7 @@
         </div>
         <div class="recipients">
             <h3>Recipients and amount</h3>
-            <p>Enter one address and amount in ETH on each line. Supports any format</p>
+            <p>Enter one address and amount in <span v-if="activeToken">Token</span><span v-else>ETH</span> on each line. Supports any format</p>
             <textarea name="" id="" cols="30" rows="10" placeholder="0xc731159C350d6B0590DBA419F1FF7F726251912d 2.1543
 0xE32cC3Eb8beD62C33b3f2095854aa5A2c8aD879A,4.1543
 0x2e5cC3Eb8beD62C33b3f2095854aa5A2c8aD834d=10.2345"></textarea>

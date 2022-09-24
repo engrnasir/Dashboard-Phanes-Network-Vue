@@ -16,7 +16,7 @@
           <div class="lockWrapper" v-if="createLock" :class="nightMode? 'lockWrapper-night':''">
                 <h3 class="message">Gain investors’ trust by locking your project’s liquidity. This section is only for project deployer.</h3>
                 <div class="searchbox">
-                    <input type="text" class="searchInput" placeholder="Please enter your pair address">
+                    <input type="text" class="searchInput" placeholder="Enter token contract address">
                     <img src="@/assets/searchIcon-night.png" class="searchIcon" alt="">
                 </div>
             </div>
