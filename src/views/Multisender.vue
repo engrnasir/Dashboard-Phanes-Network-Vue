@@ -17,20 +17,21 @@
         <div class="recipients">
             <h3>Recipients and amount</h3>
             <p>Enter one address and amount in <span v-if="activeToken">Token</span><span v-else>ETH</span> on each line. Supports any format</p>
-            <textarea name="" id="" cols="30" rows="10" placeholder="0xc731159C350d6B0590DBA419F1FF7F726251912d 2.1543
+            <textarea name="" id="addresses" cols="30" rows="10" placeholder="0xc731159C350d6B0590DBA419F1FF7F726251912d 2.1543
 0xE32cC3Eb8beD62C33b3f2095854aa5A2c8aD879A,4.1543
 0x2e5cC3Eb8beD62C33b3f2095854aa5A2c8aD834d=10.2345"></textarea>
-            <div class="confirmData">
+            <button class="confirmBtn" @click="confirmData">Confirm</button>
+            <div class="confirmData" v-if="addresses.length>0">
                 <h3 class="main-title">Confirm the above information before sending.</h3>
                 <ul class="details">
                     <li class="item">
                         <p class="item-heading">Address</p>
                         <p class="item-heading">Amount</p>
                     </li>
-                    <li class="item">
-                        <p class="address">0x5e011fd8eEllab3G760KLrt76yhg59JJH89obv99998765I321</p>
+                    <li class="item" v-for="(item,index) in addresses" :key="index">
+                        <p class="address">{{item.address}}</p>
                         <hr class="h-line">
-                        <p class="amount">0.02ETH</p>
+                        <p class="amount">{{item.amount}}ETH</p>
                     </li>
                     <li class="item">
                         <p class="title">Total</p>
@@ -49,7 +50,7 @@
                 </ul>
             </div>
             <p class="inspiredText">Inspired by <a href="" target="_blank">Disperse.app</a></p>
-            <button class="sendBtn">Send</button>
+            <button class="sendBtn" v-if="addresses.length>0">Send</button>
         </div>
     </div>
   </div>
@@ -61,6 +62,7 @@ export default {
     data(){
         return{
             activeToken:false,
+            addresses:[]
         }
     },
     computed:{
@@ -69,6 +71,43 @@ export default {
         ])
     },
     methods:{
+        confirmData(){
+            if(this.addresses.length<=0){
+                alert('Enter Adresses to sent')
+            }
+        }
+    },
+    mounted(){
+        const addressInput = document.getElementById('addresses')
+        addressInput.addEventListener('change',(e)=>{
+            const arr =  e.target.value.split('\n')
+            const addressList = []
+            for(let i=0; i<arr.length; i++){
+                if(arr[i].includes(' ')){
+                    let temp = arr[i].split(' ')
+                    if(temp.length==2){
+                        addressList.push({address:temp[0], amount:temp[1]})
+                    }else{
+                        console.log('invalid address1');
+                    }
+                }else if(arr[i].includes(',')){
+                    let temp = arr[i].split(',')
+                    if(temp.length==2){
+                        addressList.push({address:temp[0], amount:temp[1]})
+                    }else{
+                        console.log('invalid address2');
+                    }
+                }else if(arr[i].includes('=')){
+                    let temp = arr[i].split('=')
+                    if(temp.length==2){
+                        addressList.push({address:temp[0], amount:temp[1]})
+                    }else{
+                        console.log('invalid address3');
+                    }
+                }    
+            }
+            this.addresses = addressList
+        })
     }
 
 }
@@ -196,7 +235,8 @@ export default {
             }
             textarea{
                 width: 100%;
-                min-height: 587px;
+                max-width: 100%;
+                min-height: 300px;
                 padding: 40px 35px;
                 font-weight: 500;
                 font-size: 20px;
@@ -213,6 +253,22 @@ export default {
                 &:focus{
                     outline: 1px solid #09976E;
                     border: 1px solid #09976E;
+                }
+            }
+            .confirmBtn{
+                align-self: flex-end;
+                width: 120px;
+                height: 40px;
+                background: linear-gradient(95.34deg, #09976E -21.44%, #084F65 108.23%);
+                border-radius: 8px;
+                font-weight: 700;
+                font-size: 18px;
+                color: #FFFFFF;
+                border: none;
+                margin-bottom: 10px;
+                &:hover{
+                    background:#09976E;
+                    cursor: pointer;
                 }
             }
             .confirmData{

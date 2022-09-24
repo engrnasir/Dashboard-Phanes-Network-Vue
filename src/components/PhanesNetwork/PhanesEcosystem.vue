@@ -74,7 +74,8 @@ export default {
             }
             .card{
                 width: 443px;
-                min-height: 278px;
+                min-height: 284px;
+                height: min-content;
                 padding: 30px;
                 background: #010D09;
                 color: #E1E1E1;
@@ -88,6 +89,9 @@ export default {
                 @media only screen and (max-width:1410px){
                     width: 100%;
                     min-width: 340px;
+                }
+                @media only screen and (max-width:980px){
+                    min-height: 315px;
                 }
                 @media only screen and (max-width:580px){
                     min-width: 320px;
