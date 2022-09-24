@@ -1,12 +1,12 @@
 import { createRouter, createWebHistory } from 'vue-router'
-import HomeView from '../views/HomeView.vue'
-import Dashboard from '../views/Dashboard.vue'
-import Index from '../views/Index.vue'
-import LiquidityLocker from '../views/LiquidityLocker.vue'
-import TokenLocker from '../views/TokenLocker.vue'
-import TokenMinter from '../views/TokenMinter.vue'
-import Staking from '../views/Staking.vue'
-import Multisender from '../views/Multisender.vue'
+import HomeView from '@/views/HomeView.vue'
+import Dashboard from '@/views/Dashboard.vue'
+import Index from '@/views/Index.vue'
+import LiquidityLocker from '@/views/LiquidityLocker.vue'
+import TokenLocker from '@/views/TokenLocker.vue'
+import TokenMinter from '@/views/TokenMinter.vue'
+import Staking from '@/views/Staking.vue'
+import Multisender from '@/views/Multisender.vue'
 
 const routes = [
   {
